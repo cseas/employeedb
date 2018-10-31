@@ -7,3 +7,7 @@ engine = create_engine('sqlite:///employeeData.db')
 Base.metadata.bind = engine
 DBSession = sessionmaker(bind = engine)
 session = DBSession()
+
+employees = session.query(Employee).all()
+for employee in employees:
+    print(employee.name)
